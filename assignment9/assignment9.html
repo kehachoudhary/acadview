@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Type or Death Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+      .container {
+        width: 85%;
+        height: auto;
+        margin: auto;
+        margin-top: 75px;
+        background-color:#b3a886 ;
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;
+        
+        font-family: Gotham, Arial, sans-serif
+      }
+
+      h1 {
+        font-size: 5em;
+      }
+        
+      section.wordArraySection {
+        height: 200px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+          margin-left: 30px;
+          margin-right: 30px;
+        background-color: lightgray;
+          border-radius: 30px;
+      }
+      
+      .wordDisplayContainer {
+        color:darkred;
+        height: auto;
+        font-size: 7.5em;
+          text-align: center;
+        
+        position: relative;
+        top: 5px;
+      }
+
+      .inputSection {
+        margin-bottom: 20px;
+      }
+      .startButton, .restartButton {
+        display: inline-block;
+        margin: auto;
+        margin-top: 35px;
+          margin-left: 3px;
+          margin-right: 3px
+      }
+
+      .progressContainer {
+        position: relative;
+        display: block;
+        margin: auto;
+        margin-top: 35px;
+        width: 85%;
+        height: 2px;
+        background-color: lightGrey;
+      }
+      #progressBar {
+      display: block;
+      position: absolute;
+      height: 10px;
+      width: 10px; 
+      top: -4px;
+      border-radius: 50%;
+      box-shadow: inset -15px -15px 50px lightBlue, 5px 4px 20px grey, inset 0px 0px 10px black;
+
+      background-color: red;
+      }
+        
+      @media screen and (max-width: 768px) {
+        .wordDisplayContainer {
+          font-size: 3em;
+          top: 35%;
+        }
+      }
+
+    </style>
+</head>
+<body> <div class="container">
+      
+      <section>
+        <header>
+          <h1 class="gameTitle" style= "color:#05060e">Type or Death</h1> 
+        </header>
+        <div class="detailsDisplay">
+          <div class="levelDisplay">
+            <p><strong>Level</strong><span id="level"></span></p>
+          </div>
+          <div class="scoreDisplay">
+            <p><strong>Your score is:</strong> <span id="score">0</span> points</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="wordArraySection">
+        <div class="wordDisplayContainer">
+          <span id="words">Ready?</span>
+        </div>
+      </section>
+
+      <section class="inputSection">
+        <label for="">
+          <span class="smallType"><strong>Type Words Here:</strong></span>
+            <input id = "wordInput" type = "text" ></label>
+      <div class="buttons">
+        <button id="start" class="startButton" onclick="startGame()">Click to Start</button>
+        <button id="restart" class="restartButton" onclick="restartGame()">Restart</button>
+        <button id="end" class="restartButton" onclick="endGame()">End Game</button>
+      </div>
+      </section>
+    </div>
+  
+    <div class="progressContainer">
+      <span id="progressBar"></span>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+let words = ['cat', 'two','long', 'map', 'trap', 'flew', 'back', 'then', 'went', 'big','route', 'primed', 'climbed'];
+
+let scoreSpan = document.querySelector('#score');
+let score = 0;
+scoreSpan.innerHTML = score;
+
+let levelSpan = document.querySelector('#level');
+let level = 1;
+levelSpan.innerHTML = level;
+
+let input = document.querySelector('#wordInput');
+let startBtn = document.querySelector('#start');
+let display = document.querySelector('#words');
+
+function startGame() {
+  display.innerHTML = '';
+  
+  scoreSpan.innerHTML = score;
+  
+  pos = 0;
+  timerSpan.style.left = pos + '%';
+  
+  let count = 4;
+  let counter = setInterval(timer, 1000);
+  
+  function timer() {
+    count = count - 1;
+    display.innerHTML = count;
+    if (count <= 0) {
+      clearInterval(counter);
+      playGame();
+    }
+    return;
+  }
+  
+}
+        
+function playGame() {
+  let playing = true;
+  
+    if (playing) {
+      let restart = document.querySelector('#restart');
+      let end = document.querySelector('#end');
+      
+      gameDuration();
+      
+      display.innerHTML = words[0];
+      submitWord();
+      if (restart === 'clicked') {
+          restartGame();
+      }
+      if (end === 'clicked') {
+        endGame();
+      }
+    } else {
+      display.innerHTML = 'Ready?';
+      return;
+    }
+  return; 
+}
+
+function restartGame() {
+ var a = document.getElementById("wordInput");
+a.value = a.defaultValue;
+  score = 0;
+  scoreSpan.innerHTML = score;
+  
+  pos = 0;
+  timerSpan.style.left = pos + '%'
+     
+  startGame();
+  return score;
+}
+
+function endGame() {
+  playing = false;
+  display.innerHTML = 'Game Over!';
+  
+  if (score <= 20) {
+    alert('Better luck next time! Your score is ' + score + ' points.');
+  } else if (score <= 40) {
+    alert('great job! Your score is ' + score + ' points .');
+  } else if (score > 50 || score <= 80) {
+    alert('Excellent.. your score is' + score + ' points. Bravo!');
+  } else {
+    return;
+  }
+  score = 0;
+  answer.value = "";
+  console.log('The game has ended. Playing set to: ' + playing);
+}
+
+// Game Duration Progress Bar / Span Transform and Color Change
+let timerSpan = document.querySelector("#progressBar");
+let pos = 0;
+
+function gameDuration() {
+  let id = setInterval(frame, 15);
+  function frame() {
+    if (pos === 100) {
+      clearInterval(id);
+      pos = 0;
+      endGame();
+    } else {
+      pos++; 
+      timerSpan.style.left = pos + '%';
+      return pos;
+    }
+  }
+}
+
+
+// Submit the input value and check if word matches the array's iteration
+function submitWord() {
+  let answer = input;
+  
+  input.addEventListener('keyup', function() {
+    event.preventDefault;
+    for (i = 0; i <= words.length; i++) {
+      if (answer.value === words[i]) {
+        pos = 0;
+        words[i++];
+        score += 10;
+        scoreSpan.innerHTML = score; 
+        display.innerHTML = words[i];
+        answer.value = "";
+        console.log('true');
+        return score;
+      } else {
+        console.log('false');
+      }
+    }
+    return answer;
+  })
+  return answer;
+}
+    </script></body>
+   
+</html>
