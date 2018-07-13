@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Github Jobs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+<body >
+
+   
+    <div style="background-image: url('7.jpg');">
+    <nav class="navbar navbar-inverse  navbar-fixed-top " >
+  <div class="container-fluid">
+    <div class="navbar-header" >
+       
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="myNavbar">
+          
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>     
+
+        </button>
+        <a class="navbar-brand" href="#"  >GitHub Jobs</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="https://www.shine.com/job-search/" target="blank">Browse Jobs</a></li>
+        <li><a href="#about">About</a></li>
+           <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      
+        <li><a href="#id01"  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#id0" onclick="document.getElementById('id0').style.display='block'" style="width:auto;" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<br>
+<br> <br>  <br>  <br>  <br> <br>
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:rgba(0, 0,0, 0.0); color:white; height:180px;">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" ></li>
+        <li data-target="#myCarousel" data-slide-to="2" ></li>
+      </ol>
+  
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="microsoft.jpg" alt="Los Angeles" style="width:180px; height: 100px; margin-top:0px; float:left;">
+          <h1  class="no-top-margin carousel-link add-shadow" >Claims Data Entry Clerk</h1>
+  <p class="carousel-job-text hide-sm" >   Participates productively as member of team, possibly in a team lead role.
+  Completes complex tasks, assignments and defined processes with some level of independence.
+  Multiple assignments worked and completed simultaneously as directed by leadership.
+  Identifies, prioritizes and resolves ...</p>
+       
+        </div>
+  
+        <div class="item">
+          <img src="huai.jpg" alt="Chicago" style="width:120px; height: 80px; float:left">
+                    <h1  class="no-top-margin carousel-link add-shadow">Administrative Analyst</h1>
+  
+            <p class="carousel-job-text hide-sm">The Administrative Analyst Performs administrative support for 2 leaders within the Enterprise Solutions organization. The Analyst prepares correspondence, presentations, and reports. Composes routine correspondence and memoranda. Maintains confidential records and information.
+   
+          </div>
+        <div class="item">
+          <img src="dell.jpg" alt="New York" style="width:120px; height:80px; float:left">
+    <h1  class="no-top-margin carousel-link add-shadow" style="margin-left: 4px">Software Development Analyst</h1>
+            <p class="carousel-job-text hide-sm">Dell is looking for a highly skilled Software Development Analyst who is willing to handle development as well production support work.  He/She should be able to gather client requirements, estimate, design, develop and deploy ...</p>
+      
+        </div>
+    
+      </div>
+  
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+  </div>
+    <div class="container" style="background-color:rgba(10,0,0,0.6);text-align:center; border-radius: 20px;  width: 85%;
+        height: auto;
+        margin: auto;
+        margin-top: 150px;                      padding: 10px;
+        text-align: center;">
+       
+        <section>
+            <h2 style="color: white">Find Jobs in GitHub</h2>
+        
+        </section>
+        <br>
+    <form action="/action_page.php" >
+        <div class="form-group" >
+  <label for="job" style="color: white; margin: 4px 8px" ><strong>Job Description</strong></label>
+        <!--br-->
+  <input type="text" class="text-center" id="description"  style="border-style:double; margin: 4px 18px; width:240px;  height:30px;" required>  
+        &nbsp;    
+            <label for="Location" style="color: white; margin: 4px 8px"><strong>Location</strong></label>
+        <!--br-->
+            <input type="text" class="text-center" id="location"  style="border-style:double; margin: 4px 18px; width:240px; height:30px;" required> <!--br-->
+             <button type="button" id="btn_email" class="btn btn-primary btn-md" onclick="findjobs();" style="border-style:double; margin: 4px 18px; width:140px;"> <span class="glyphicon glyphicon-search"></span>  Search     </button>
+            </div>
+</form>
+        </div>
+        </div>
+        <div id="message">
+
+        </div>
+  
+        <div class="result" id="result">
+                   
+        </div>
+    
+       
+
+    
+    <br>
+        <br>
+    
+    </div>
+    <br>
+    <div >
+      <br>
+      <div class="rightcolumn" id="about">
+        <div class="card">
+          <h2 style="text-shadow: 2px 2px black" ><strong>About</strong></h2>
+          <p> GitHub is the most innovative and second largest online job portal in India.</p>
+          <p> Founded in 2008, over the past decade, Shine.com has become a prominent name in the recruitment industry. </p>
+          <p>The popularity of the portal is evident from the fact that it has crossed the 2.5 crore candidate landmark and has more than 3 lakh latest job vacancies from leading companies on the site.
+          <br>
+           <a href="https://github.com/about" target="blank">Read More </a>
+          <br>
+          <br>
+          <br>
+          <br></p> 
+            
+          </div>
+    </div>
+   <br> 
+   <br>
+  </div>
+  <br>
+  <br>
+  <div id="id01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content" action="/action_page.php">
+        <div class="container-fluid">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+    
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          
+          <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          </label>
+    
+          <p>By creating an account you agree to our <a href="https://help.github.com/articles/github-terms-of-service/" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="id0" class="modal">
+  
+        <form class="modal-content animate" action="/action_page.php">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id0').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="img.png" style="width:250px; height:250px;" alt="Avatar" class="avatar">
+          </div>
+      
+          <div class="container-fluid">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+      
+          <div class="container-fluid" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id0').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
+    <script>
+    var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+// Get the modal
+var modal = document.getElementById('id0');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
+
+
+  <div class="footer">
+      <div class="row">
+          <div class="col-sm-4" ><p>Partner Sites</p>
+            <p><a href="http://www.englishmate.com/">English Mate</a> </p>
+            <p><a href="http://www.studymateonline.com/">Study Mate</a> </p>
+          </div>
+          <div class="col-sm-4" ><p>Follow us</p>
+            <img src="facebook.png" style="float:left; width:15px;">
+          <p> <a href="https://www.facebook.com/shinedotcom" target="blank">Facebook</a></p>
+              
+              <img src="linkedin.png" style="float:left; width:20px;">
+              <p><a href="https://www.linkedin.com/groups/" target="blank">LinkedIn</a></p>      
+        </div>
+          <div class="col-sm-4" id="contact"><p>Contact us</p>
+            <p> <contact>987-390-8002</contact>  </p>
+            <p><a href="https://github.com/contact" target="blank" >contactus@github.com</a> </p></div>
+        </div>
+   </div>
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
